@@ -5,7 +5,7 @@ showSource: true
 state: {}
 ---
 <div style={{background: "#fff", padding: 20}}>
-	<Slider value={1} stopCount={5} />
+	<Slider value={1} stopCount={5} styleOverrides={{gradientStartColor:"#1e91d6", gradientEndColor:"#79cafb"}} />
 	<Slider value={1} stopCount={5} />
 </div>
 ```

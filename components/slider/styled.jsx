@@ -41,7 +41,9 @@ export const TrackGradient = styled.div`
 	right: 0;
 	border-radius: 10px;
 	height: 8px;
-	background-image: linear-gradient(to left, #79cafb, #1e91d6);
+	background-image: ${({ styleOverrides }) =>
+		`linear-gradient(to left, ${styleOverrides.gradientStartColor ||
+			'#79cafb'}, ${styleOverrides.gradientEndColor || '#1e91d6'})`};
 	z-index: -10;
 `;
 

@@ -36,6 +36,8 @@ export class Slider extends PureComponent {
 		/** Style overrides */
 		styleOverrides: PropTypes.shape({
 			backgroundColor: PropTypes.string,
+			gradientStartColor: PropTypes.string,
+			gradientEndColor: PropTypes.string,
 		}),
 	};
 
@@ -255,7 +257,7 @@ export class Slider extends PureComponent {
 				{...props}
 			>
 				<Styled.TrackContainer>
-					<Styled.TrackGradient />
+					<Styled.TrackGradient styleOverrides={styleOverrides} />
 					{track.map(index => (
 						<Styled.Track
 							active={index < this.state.value}
