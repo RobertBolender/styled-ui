@@ -5,11 +5,11 @@ import { ThemedBox } from '../ThemedBox';
 import { useModalContext } from './use-modal-context';
 
 /** A flexible component built on styled-system primitives. */
-export const ModalContent = ({ paddingY, maxHeight, children, ...props }) => {
+export const ModalContent = ({ padding, paddingY, maxHeight, children, ...props }) => {
 	const { contentPadding, fullscreen } = useModalContext();
 	return (
 		<ThemedBox
-			paddingY={paddingY ?? contentPadding}
+			paddingY={paddingY ?? padding ?? contentPadding}
 			maxHeight={maxHeight ? maxHeight : fullscreen ? '100vh' : 'calc(100vh - 150px)'}
 		>
 			<Box
@@ -18,7 +18,7 @@ export const ModalContent = ({ paddingY, maxHeight, children, ...props }) => {
 				css={`
 					overflow-wrap: break-word;
 				`}
-				paddingX={contentPadding}
+				paddingX={padding ?? contentPadding}
 				overflowY="auto"
 				height="100%"
 				{...props}

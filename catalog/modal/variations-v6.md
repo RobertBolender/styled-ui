@@ -170,6 +170,7 @@ state: { modal: false, value: '' }
 		<Modal.Header
 			title="Fullscreen modal"
 			textStyle="h.24"
+			paddingBottom={6}
 			message={`Autosaved at ${new Date().toString()}`}
 			actions={<Box display="grid" gridAutoFlow="column" gridAutoColumns="min-content" gridGap={[3,5]}>
 				<Button size={['medium', 'small']} minWidth={78} variant="secondary" onClick={() => setState({ modal: !state.modal })}>
@@ -180,10 +181,7 @@ state: { modal: false, value: '' }
 				</Button>
 			</Box>}
 		/>
-		<Modal.Content
-			paddingX={0}
-			paddingBottom={0}
-		>
+		<Modal.Content padding={0}>
 			<Box
 				backgroundImage="url(https://www.bellinghamherald.com/news/local/l6de4z/picture53186905/alternates/LANDSCAPE_1140/Faithlife%201)"
 				backgroundSize="cover"
