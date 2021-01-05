@@ -194,9 +194,13 @@ colors.dropdown = {
 colors.checkbox = {
 	background: 'transparent',
 	primary: colors.blue4,
+	secondary: colors.white,
 	border: '#95908f',
+	borderSelected: colors.blue4,
 	disabledBackground: colors.gray8,
+	disabledSelectedBackground: colors.blue2,
 	disabledBorder: colors.gray22,
+	disabledSelectedBorder: colors.blue2,
 	borderFocused: colors.input.borderFocused,
 	shadowFocused: colors.input.shadowFocused,
 };
@@ -230,6 +234,7 @@ colors.loadingSpinner = {
 
 colors.radio = {
 	primary: colors.blue4,
+	secondary: colors.white,
 	border: colors.checkbox.border,
 	disabledBackground: colors.gray8,
 	disabledBorder: colors.gray22,

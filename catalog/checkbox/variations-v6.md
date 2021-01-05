@@ -43,7 +43,7 @@ state: { isChecked: false }
 <CheckboxDemo>
 	<ThemeProvider theme={{
 		colors: {
-			checkbox: { primary: 'darkslateblue', border: 'plum' }
+			checkbox: { primary: 'darkslateblue', secondary: 'white', border: 'plum' }
 		}
 	}}>
 		<Checkbox
@@ -76,13 +76,19 @@ state: { isChecked: false }
 
 ```react
 showSource: true
-state: { isChecked: false }
 ---
 <CheckboxDemo>
 	<Checkbox
 		onClick={() => setState({ isChecked: !state.isChecked })}
-		isChecked={state.isChecked}
-		title="Click me"
+		isChecked={false}
+		title="Disabled, not selected"
+		type="button"
+		disabled
+	/>
+	<Checkbox
+		onClick={() => setState({ isChecked: !state.isChecked })}
+		isChecked={true}
+		title="Disabled, selected"
 		type="button"
 		disabled
 	/>

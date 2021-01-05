@@ -6,17 +6,28 @@ import { Box } from '../Box';
 export const CheckboxDiv = styled(Box)`
 	display: inline;
 	position: relative;
-	border: solid 1px ${({ theme }) => theme.colors.checkbox.border};
-	border-radius: 3px;
 	width: 16px;
 	height: 16px;
-	background: ${({ theme }) => theme.colors.checkbox.background};
 
-	${({ disabled, theme }) =>
+	border: solid 1px ${({ isChecked, theme }) =>
+		isChecked ? theme.colors.checkbox.borderSelected : theme.colors.checkbox.border};
+	border-radius: 3px;
+	background-color: ${({ isChecked, theme }) =>
+		isChecked ? theme.colors.checkbox.primary : theme.colors.checkbox.background};
+
+	${({ disabled, isChecked, theme }) =>
 		disabled &&
 		`
-			border: solid 1px ${theme.colors.checkbox.disabledBorder};
-			background-color: ${theme.colors.checkbox.disabledBackground};
+			border: solid 1px ${
+				isChecked
+					? theme.colors.checkbox.disabledSelectedBorder
+					: theme.colors.checkbox.disabledBorder
+			};
+			background-color: ${
+				isChecked
+					? theme.colors.checkbox.disabledSelectedBackground
+					: theme.colors.checkbox.disabledBackground
+			};
 		`}
 
 	${position}
@@ -87,7 +98,7 @@ export const isMixedStyles = css`
 	&:after {
 		width: 10px;
 		height: 2px;
-		background: ${({ theme }) => theme.colors.checkbox.primary};
+		background: ${({ theme }) => theme.colors.checkbox.secondary};
 		content: '';
 		opacity: 1;
 	}
@@ -100,9 +111,9 @@ export const CheckedIndicator = styled.div`
 	&:after {
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%208%208'%3E%3Cpath%20fill='${props =>
 			encodeURIComponent(
-				props.theme.colors.checkbox.primary,
+				props.theme.colors.checkbox.secondary,
 			)}'%20d='M6.564.75l-3.59%203.612-1.538-1.55L0%204.26%202.974%207.25%208%202.193z'/%3E%3C/svg%3E");
-		color: ${({ theme }) => theme.colors.checkbox.primary};
+		color: ${({ theme }) => theme.colors.checkbox.secondary};
 		opacity: 0;
 	}
 

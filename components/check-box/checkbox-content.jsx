@@ -15,7 +15,12 @@ export function CheckboxContent({ isChecked, title, disabled, children, ...other
 
 	return (
 		<>
-			<Styled.CheckboxDiv disabled={disabled} {...otherProps} {...box?.props ?? {}}>
+			<Styled.CheckboxDiv
+				isChecked={isChecked}
+				disabled={disabled}
+				{...otherProps}
+				{...box?.props ?? {}}
+			>
 				<Styled.CheckedIndicator isChecked={isChecked} disabled={disabled} />
 			</Styled.CheckboxDiv>
 			{label}
